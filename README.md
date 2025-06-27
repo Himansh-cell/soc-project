@@ -1,1 +1,1 @@
-# soc-midterm
+# soc project
