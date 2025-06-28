@@ -1,0 +1,23 @@
+class Solution {
+private:
+    void combineHelper(int start, int n, int k, vector<int>& path, vector<vector<int>>& result) {
+        if (path.size() == k) {
+            result.push_back(path);
+            return;
+        }
+
+        for (int i = start; i <= n; ++i) {
+            path.push_back(i);
+            combineHelper(i + 1, n, k, path, result);  
+            path.pop_back(); 
+        }
+    }
+
+public:
+    vector<vector<int>> combine(int n, int k) {
+        vector<vector<int>> result;
+        vector<int> path;
+        combineHelper(1, n, k, path, result);
+        return result;
+    }
+};
